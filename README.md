@@ -1,6 +1,6 @@
-## Este é um código em C++ para controlar um carro usando um microcontrolador Arduino. Ele inclui a definição de uma classe chamada "Carro" que tem várias funções para configurar e controlar os pinos do microcontrolador que estão conectados aos diferentes componentes do carro, como a ignição, o motor de arranque, os cintos de segurança e as portas.
+### Este é um código em C++ para controlar um carro usando um microcontrolador Arduino. Ele inclui a definição de uma classe chamada "Carro" que tem várias funções para configurar e controlar os pinos do microcontrolador que estão conectados aos diferentes componentes do carro, como a ignição, o motor de arranque, os cintos de segurança e as portas.
 
-## A classe Carro tem um construtor padrão vazio e vários métodos para configurar os pinos e controlar o carro. Os métodos incluem:
+### A classe Carro tem um construtor padrão vazio e vários métodos para configurar os pinos e controlar o carro. Os métodos incluem:
 
 * set_ignicao: configura o pino de ignição
 * set_ignicao_feedback: configura o pino de feedback da ignição
@@ -20,8 +20,8 @@ O código também inclui a biblioteca Arduino.h e uma função main vazia, já q
 
 
 
-## This is a C++ code to control a car using an Arduino microcontroller. It includes the definition of a class called "Car" that has several functions to set up and control the microcontroller pins that are connected to the different components of the car, such as the ignition, starter motor, seat belts, and doors.
-## The Car class has an empty default constructor and several methods to set up the pins and control the car. The methods include:
+### This is a C++ code to control a car using an Arduino microcontroller. It includes the definition of a class called "Car" that has several functions to set up and control the microcontroller pins that are connected to the different components of the car, such as the ignition, starter motor, seat belts, and doors.
+### The Car class has an empty default constructor and several methods to set up the pins and control the car. The methods include:
 * set_ignition: sets up the ignition pin
 * set_ignition_feedback: sets up the ignition feedback pin
 * set_starter: sets up the starter pin
