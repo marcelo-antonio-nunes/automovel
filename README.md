@@ -20,5 +20,31 @@ O código também inclui a biblioteca Arduino.h e uma função main vazia, já q
 
 
 
+## This is a C++ code to control a car using an Arduino microcontroller. It includes the definition of a class called "Car" that has several functions to set up and control the microcontroller pins that are connected to the different components of the car, such as the ignition, starter motor, seat belts, and doors.
+## The Car class has an empty default constructor and several methods to set up the pins and control the car. The methods include:
+* set_ignition: sets up the ignition pin
+* set_ignition_feedback: sets up the ignition feedback pin
+* set_starter: sets up the starter pin
+* set_driver_seatbelt: sets up the driver's seatbelt pin
+* set_passenger_seatbelt: sets up the passenger's seatbelt pin
+* set_gear_shift: sets up the gear shift pin
+* set_driver_door: sets up the driver's door pin
+* set_passenger_door: sets up the passenger's door pin
+* turn_on_ignition: turns on the ignition key
+* start_engine: starts the car engine
+* monitor_driver_seatbelt: monitors if the driver's seatbelt is unbuckled
+* monitor_passenger_seatbelt: monitors if the passenger's seatbelt is unbuckled
+
+## The code also includes the Arduino.h library and an empty main function, since the code is designed to be used as a library that can be incorporated into other programs.
+
+## In summary, this code is a class to control a car using an Arduino microcontroller and is an example of how electronics can be used to automate and control mechanical systems.
+
+
+
+
+
+
+
+
 
 
