@@ -14,7 +14,6 @@ void setup()
   muira.set_partida(13);
   muira.set_porta_moto(3);
   muira.set_porta_carona(4);
-  muira.
 }
 
 void loop()

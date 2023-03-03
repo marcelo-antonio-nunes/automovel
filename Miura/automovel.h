@@ -19,7 +19,6 @@ public:
     int set_vidro_moto(int vidro);//feito
     int set_vidro_passageiro_direta(int vidro);//feito
     int set_vidro_passageiro_esquerda(int vidro);//feito
-    //===============================================//
     void dar_partida(int tempo);//feito
     bool monitora_cinto_moto();// feito
     bool monitora_cinto_carona();//feito
