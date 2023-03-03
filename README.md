@@ -35,9 +35,9 @@ O código também inclui a biblioteca Arduino.h e uma função main vazia, já q
 * monitor_driver_seatbelt: monitors if the driver's seatbelt is unbuckled
 * monitor_passenger_seatbelt: monitors if the passenger's seatbelt is unbuckled
 
-## The code also includes the Arduino.h library and an empty main function, since the code is designed to be used as a library that can be incorporated into other programs.
+### The code also includes the Arduino.h library and an empty main function, since the code is designed to be used as a library that can be incorporated into other programs.
 
-## In summary, this code is a class to control a car using an Arduino microcontroller and is an example of how electronics can be used to automate and control mechanical systems.
+### In summary, this code is a class to control a car using an Arduino microcontroller and is an example of how electronics can be used to automate and control mechanical systems.
 
 
 
