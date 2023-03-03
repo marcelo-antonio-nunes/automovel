@@ -42,19 +42,22 @@ void Carro::set_cinto_carona(int cinto_carona)
 }
 
 // Configuração do pino do câmbio
-void Carro::set_cambio(int cambio){
+void Carro::set_cambio(int cambio)
+{
     _CAMBIO = cambio;
     pinMode(_CAMBIO, INPUT_PULLUP);
 }
 
 // Configuração do pino da porta do motorista
-void Carro::set_porta_moto(int porta_moto){
+void Carro::set_porta_moto(int porta_moto)
+{
     _PORTA_MOTO = porta_moto;
     pinMode(_PORTA_MOTO, INPUT_PULLUP);
 }
 
 // Configuração do pino da porta do passageiro
-void Carro::set_porta_carona(int porta_carona){
+void Carro::set_porta_carona(int porta_carona)
+{
     _PORTA_CARONA = porta_carona;
     pinMode(_PORTA_MOTO, INPUT_PULLUP);
 }
@@ -72,7 +75,7 @@ void Carro::liga_chave()
     {
         digitalWrite(_IGNICAO, HIGH);
         Serial.print("[{\"say\": \"Chave ligada!");
-        
+
         // Aguarda um curto período de tempo para permitir que o relé da ignição se feche
         unsigned long duracaoEspera = 100;
         while (millis() - tempoInicial < duracaoEspera)
@@ -115,73 +118,74 @@ void Carro::dar_partida(int tempo)
     else
     {
         // Se as condições acima não forem atendidas, tenta ligar a chave novamente e dar partida novamente depois de 2 segundos
-      liga_chave();
-      dar_partida(2000);
+        liga_chave();
+        dar_partida(2000);
     }
 };
 // Método para monitorar se o cinto do motorista está solto.
 bool Carro::monitora_cinto_moto()
 {
-if (digitalRead(_CINTO_MOTO)) // Verifica se o pino _CINTO_MOTO está em nível alto.
-{
-Serial.print("[{\"say\": \"Cinto do motorista solto"); // Imprime mensagem no console serial.
-delay(2000); // Aguarda 2 segundos.
-return 1; // Retorna verdadeiro (1) indicando que o cinto está solto.
-}
-return 0; // Retorna falso (0) indicando que o cinto está preso.
+    if (digitalRead(_CINTO_MOTO)) // Verifica se o pino _CINTO_MOTO está em nível alto.
+    {
+        Serial.print("[{\"say\": \"Cinto do motorista solto"); // Imprime mensagem no console serial.
+        delay(2000);                                           // Aguarda 2 segundos.
+        return 1;                                              // Retorna verdadeiro (1) indicando que o cinto está solto.
+    }
+    return 0; // Retorna falso (0) indicando que o cinto está preso.
 }
 
 // Método para monitorar se o cinto do carona está solto.
 bool Carro::monitora_cinto_carona()
 {
-if (digitalRead(_CINTO_CARONA)) // Verifica se o pino _CINTO_CARONA está em nível alto.
-{
-Serial.print("[{\"say\": \"Cinto do carona solto"); // Imprime mensagem no console serial.
-delay(2000); // Aguarda 2 segundos.
-return 1; // Retorna verdadeiro (1) indicando que o cinto está solto.
-}
-return 0; // Retorna falso (0) indicando que o cinto está preso.
+    if (digitalRead(_CINTO_CARONA)) // Verifica se o pino _CINTO_CARONA está em nível alto.
+    {
+        Serial.print("[{\"say\": \"Cinto do carona solto"); // Imprime mensagem no console serial.
+        delay(2000);                                        // Aguarda 2 segundos.
+        return 1;                                           // Retorna verdadeiro (1) indicando que o cinto está solto.
+    }
+    return 0; // Retorna falso (0) indicando que o cinto está preso.
 }
 
 // Método para monitorar se o câmbio está engatado.
 bool Carro::monitora_cambio()
 {
-if (digitalRead(_CAMBIO)) // Verifica se o pino _CAMBIO está em nível alto.
-{
-Serial.print("[{\"say\": \"Cambio engatado!!!"); // Imprime mensagem no console serial.
-delay(2000); // Aguarda 2 segundos.
-return 1; // Retorna verdadeiro (1) indicando que o câmbio está engatado.
-}
-return 0; // Retorna falso (0) indicando que o câmbio está desengatado.
+    if (digitalRead(_CAMBIO)) // Verifica se o pino _CAMBIO está em nível alto.
+    {
+        Serial.print("[{\"say\": \"Cambio engatado!!!"); // Imprime mensagem no console serial.
+        delay(2000);                                     // Aguarda 2 segundos.
+        return 1;                                        // Retorna verdadeiro (1) indicando que o câmbio está engatado.
+    }
+    return 0; // Retorna falso (0) indicando que o câmbio está desengatado.
 }
 
 // Método para monitorar se a porta do motorista está aberta.
 bool Carro::monitora_porta_moto()
 {
-if (digitalRead(_PORTA_MOTO)) // Verifica se o pino _PORTA_MOTO está em nível alto.
-{
-Serial.print("[{\"say\": \"Porta do motorista aberta!!!"); // Imprime mensagem no console serial.
-delay(2000); // Aguarda 2 segundos.
-return 1; // Retorna verdadeiro (1) indicando que a porta está aberta.
-}
-return 0; // Retorna falso (0) indicando que a porta está fechada.
+    if (digitalRead(_PORTA_MOTO)) // Verifica se o pino _PORTA_MOTO está em nível alto.
+    {
+        Serial.print("[{\"say\": \"Porta do motorista aberta!!!"); // Imprime mensagem no console serial.
+        delay(2000);                                               // Aguarda 2 segundos.
+        return 1;                                                  // Retorna verdadeiro (1) indicando que a porta está aberta.
+    }
+    return 0; // Retorna falso (0) indicando que a porta está fechada.
 }
 
 // Método para monitorar se a porta do carona está aberta.
 bool Carro::monitora_porta_carona()
 {
-if (digitalRead(_PORTA_CARONA)) // Verifica se o pino _PORTA_CARONA está em nível alto.
-{
-Serial.print("[{\"say\": \"Porta do motorista carona!!!"); // Imprime mensagem no console serial.
-delay(2000); // Aguarda 2 segundos.
-return 1; // Retorna verdadeiro (1) indicando que a porta está aberta.
-}
-return 0; // Retorna falso (0) indicando que a porta está fechada.
+    if (digitalRead(_PORTA_CARONA)) // Verifica se o pino _PORTA_CARONA está em nível alto.
+    {
+        Serial.print("[{\"say\": \"Porta do motorista carona!!!"); // Imprime mensagem no console serial.
+        delay(2000);                                               // Aguarda 2 segundos.
+        return 1;                                                  // Retorna verdadeiro (1) indicando que a porta está aberta.
+    }
+    return 0; // Retorna falso (0) indicando que a porta está fechada.
 }
 
 // Método para desligar o carro.
 bool Carro::desligar()
-{    if (!digitalRead(_IGNICAO))
+{
+    if (!digitalRead(_IGNICAO))
     {
         Serial.print("[{\"say\": \"O carro ja esta ligado!");
         return 1;
@@ -192,60 +196,72 @@ bool Carro::desligar()
     }
     return 0;
 }
-int Carro::set_vidro_carona(int vidro){
+int Carro::set_vidro_carona(int vidro)
+{
     _VIDRO_CARONA = vidro;
     pinMode(_VIDRO_CARONA, OUTPUT);
     return vidro;
 }
-int Carro::set_vidro_moto(int vidro){
+int Carro::set_vidro_moto(int vidro)
+{
     _VIDRO_MOTO = vidro;
     pinMode(_VIDRO_MOTO, OUTPUT);
     return vidro;
 }
-int Carro::set_vidro_passageiro_direta(int vidro){
+int Carro::set_vidro_passageiro_direta(int vidro)
+{
     _VIDRO_PASSAGEIRO_DIREITO = vidro;
     pinMode(_VIDRO_PASSAGEIRO_DIREITO, OUTPUT);
     return vidro;
 }
-int Carro::set_vidro_passageiro_esquerda(int vidro){
+int Carro::set_vidro_passageiro_esquerda(int vidro)
+{
     _VIDRO_PASSAGEIRO_ESQUERDO = vidro;
     pinMode(_VIDRO_PASSAGEIRO_ESQUERDO, OUTPUT);
     return vidro;
 }
-bool Carro::abrir_vidro(int vidro, int fimDeCurso){
-        pinMode(fimDeCurso, INPUT_PULLUP);
-        if(!fimDeCurso){
-            digitalWrite(vidro, HIGH);
-            delay(2000);
-            digitalWrite(vidro, LOW);
-        }
-        return fimDeCurso;
-}
-bool Carro::fechar_vidro(int vidro, int fimDeCurso){
-        pinMode(fimDeCurso, INPUT_PULLUP);
-        if(!fimDeCurso){
-            digitalWrite(vidro, HIGH);
-            delay(2000);
-            digitalWrite(vidro, LOW);
-        }
+bool Carro::abrir_vidro(int vidro, int fimDeCurso)
+{
+    pinMode(fimDeCurso, INPUT_PULLUP);
+    if (!fimDeCurso)
+    {
+        digitalWrite(vidro, HIGH);
+        delay(2000);
+        digitalWrite(vidro, LOW);
+    }
     return fimDeCurso;
 }
-bool Carro::ligar_farol_baixo(){
+bool Carro::fechar_vidro(int vidro, int fimDeCurso)
+{
+    pinMode(fimDeCurso, INPUT_PULLUP);
+    if (!fimDeCurso)
+    {
+        digitalWrite(vidro, HIGH);
+        delay(2000);
+        digitalWrite(vidro, LOW);
+    }
+    return fimDeCurso;
+}
+bool Carro::ligar_farol_baixo()
+{
     pinMode(_FAROIS_BAIXO, OUTPUT);
     digitalWrite(_FAROIS_BAIXO, HIGH);
     return _FAROIS_BAIXO;
 }
-bool Carro::desligar_farol_baixo(){
+bool Carro::desligar_farol_baixo()
+{
     pinMode(_FAROIS_ALTO, OUTPUT);
     digitalWrite(_FAROIS_ALTO, LOW);
     return _FAROIS_ALTO;
 }
-bool Carro::ligar_farol_alto(){
+bool Carro::ligar_farol_alto()
+{
     pinMode(_FAROIS_ALTO, OUTPUT);
     digitalWrite(_FAROIS_ALTO, HIGH);
     return _FAROIS_ALTO;
 }
-bool Carro::desligar_farol_alto(){
+bool Carro::desligar_farol_alto()
+{
     pinMode(_FAROIS_ALTO, OUTPUT);
     digitalWrite(_FAROIS_ALTO, LOW);
     return _FAROIS_ALTO;

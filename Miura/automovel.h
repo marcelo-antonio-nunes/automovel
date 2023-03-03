@@ -1,37 +1,36 @@
 #ifndef _CARRO_H
 #define _CARRO_H
 
-
 class Carro
 {
 public:
     Carro();
-    void liga_chave();//feito
-    void set_ignicao(int ignicao);//feito
-    void set_ignicao_feedback(int ignicao_feedback);//feito
-    void set_partida(int partida);//feito
-    void set_cinto_moto(int cinto_moto);//feito
-    void set_cinto_carona(int cinto_carona);//feito
-    void set_cambio(int cambio);//feito
-    void set_porta_moto(int porta_moto);//feito
-    void set_porta_carona(int porta_carona);//feito
-    int set_vidro_carona(int vidro);//feito
-    int set_vidro_moto(int vidro);//feito
-    int set_vidro_passageiro_direta(int vidro);//feito
-    int set_vidro_passageiro_esquerda(int vidro);//feito
-    void dar_partida(int tempo);//feito
-    bool monitora_cinto_moto();// feito
-    bool monitora_cinto_carona();//feito
-    bool monitora_cambio();//feito
-    bool monitora_porta_moto();//feito
-    bool monitora_porta_carona();//feito
-    bool abrir_vidro(int vidro, int fimDeCurso);//feito
-    bool fechar_vidro(int vidro, int fimDeCurso);//feito
-    bool ligar_farol_baixo();//feito
-    bool desligar_farol_baixo();//feito
-    bool ligar_farol_alto();//feito
-    bool desligar_farol_alto();//feito
-    bool desligar();//feito
+    void liga_chave();                               // feito
+    void set_ignicao(int ignicao);                   // feito
+    void set_ignicao_feedback(int ignicao_feedback); // feito
+    void set_partida(int partida);                   // feito
+    void set_cinto_moto(int cinto_moto);             // feito
+    void set_cinto_carona(int cinto_carona);         // feito
+    void set_cambio(int cambio);                     // feito
+    void set_porta_moto(int porta_moto);             // feito
+    void set_porta_carona(int porta_carona);         // feito
+    int set_vidro_carona(int vidro);                 // feito
+    int set_vidro_moto(int vidro);                   // feito
+    int set_vidro_passageiro_direta(int vidro);      // feito
+    int set_vidro_passageiro_esquerda(int vidro);    // feito
+    void dar_partida(int tempo);                     // feito
+    bool monitora_cinto_moto();                      // feito
+    bool monitora_cinto_carona();                    // feito
+    bool monitora_cambio();                          // feito
+    bool monitora_porta_moto();                      // feito
+    bool monitora_porta_carona();                    // feito
+    bool abrir_vidro(int vidro, int fimDeCurso);     // feito
+    bool fechar_vidro(int vidro, int fimDeCurso);    // feito
+    bool ligar_farol_baixo();                        // feito
+    bool desligar_farol_baixo();                     // feito
+    bool ligar_farol_alto();                         // feito
+    bool desligar_farol_alto();                      // feito
+    bool desligar();                                 // feito
 
 private:
     int _IGNICAO;
