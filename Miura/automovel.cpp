@@ -187,81 +187,99 @@ bool Carro::desligar()
 {
     if (!digitalRead(_IGNICAO))
     {
-        Serial.print("[{\"say\": \"O carro ja esta ligado!");
+        // Se a ignição já estiver desligada, exibe uma mensagem e retorna verdadeiro (1).
+        Serial.print("[{\"say\": \"O carro já está desligado!\"}"); 
         return 1;
     }
     else
     {
+        // Caso contrário, desliga a ignição.
         digitalWrite(_IGNICAO, LOW);
     }
+    // Retorna falso (0) indicando que a ignição foi desligada com sucesso.
     return 0;
 }
+
 int Carro::set_vidro_carona(int vidro)
 {
     _VIDRO_CARONA = vidro;
+    // Define o pino do vidro do carona como saída.
     pinMode(_VIDRO_CARONA, OUTPUT);
     return vidro;
 }
+
 int Carro::set_vidro_moto(int vidro)
 {
     _VIDRO_MOTO = vidro;
+    // Define o pino do vidro do motorista como saída.
     pinMode(_VIDRO_MOTO, OUTPUT);
     return vidro;
 }
+
 int Carro::set_vidro_passageiro_direta(int vidro)
 {
     _VIDRO_PASSAGEIRO_DIREITO = vidro;
+    // Define o pino do vidro do passageiro direito como saída.
     pinMode(_VIDRO_PASSAGEIRO_DIREITO, OUTPUT);
     return vidro;
 }
+
 int Carro::set_vidro_passageiro_esquerda(int vidro)
 {
     _VIDRO_PASSAGEIRO_ESQUERDO = vidro;
+    // Define o pino do vidro do passageiro esquerdo como saída.
     pinMode(_VIDRO_PASSAGEIRO_ESQUERDO, OUTPUT);
     return vidro;
 }
+
 bool Carro::abrir_vidro(int vidro, int fimDeCurso)
 {
     pinMode(fimDeCurso, INPUT_PULLUP);
     if (!fimDeCurso)
     {
+        // Se o fim de curso estiver pressionado, aciona o motor do vidro para abrir.
         digitalWrite(vidro, HIGH);
         delay(2000);
         digitalWrite(vidro, LOW);
     }
+    // Retorna verdadeiro se o fim de curso estiver pressionado, indicando que o vidro foi aberto com sucesso.
     return fimDeCurso;
 }
+
 bool Carro::fechar_vidro(int vidro, int fimDeCurso)
 {
     pinMode(fimDeCurso, INPUT_PULLUP);
     if (!fimDeCurso)
     {
+        // Se o fim de curso estiver pressionado, aciona o motor do vidro para fechar.
         digitalWrite(vidro, HIGH);
         delay(2000);
         digitalWrite(vidro, LOW);
     }
+    // Retorna verdadeiro se o fim de curso estiver pressionado, indicando que o vidro foi fechado com sucesso.
     return fimDeCurso;
 }
+
+/**
+ * Liga o farol alto do carro.
+ * Configura o pino de controle dos faróis baixo como saída e o coloca em alto nível (HIGH).
+ * @return O número do pino de controle dos faróis baixos.
+ */
 bool Carro::ligar_farol_baixo()
 {
+    // Define o pino dos faróis baixos como saída e os aciona.
     pinMode(_FAROIS_BAIXO, OUTPUT);
     digitalWrite(_FAROIS_BAIXO, HIGH);
     return _FAROIS_BAIXO;
 }
-bool Carro::desligar_farol_baixo()
-{
-    pinMode(_FAROIS_ALTO, OUTPUT);
-    digitalWrite(_FAROIS_ALTO, LOW);
-    return _FAROIS_ALTO;
-}
-bool Carro::ligar_farol_alto()
-{
-    pinMode(_FAROIS_ALTO, OUTPUT);
-    digitalWrite(_FAROIS_ALTO, HIGH);
-    return _FAROIS_ALTO;
-}
+/**
+ * Desliga o farol alto do carro.
+ * Configura o pino de controle dos faróis altos como saída e o coloca em baixo nível (LOW).
+ * @return O número do pino de controle dos faróis altos.
+ */
 bool Carro::desligar_farol_alto()
 {
+    // Define o pino dos faróis alto como saída e os aciona.
     pinMode(_FAROIS_ALTO, OUTPUT);
     digitalWrite(_FAROIS_ALTO, LOW);
     return _FAROIS_ALTO;
